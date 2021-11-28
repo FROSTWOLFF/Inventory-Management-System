@@ -1,7 +1,8 @@
 import React from 'react';
+import Test from './components/Test.jsx';
 
 function App() {
-  return <div>app</div>;
+  return <Test />;
 }
 
 export default App;
