@@ -1,8 +1,17 @@
 import React from 'react';
-import Test from './components/Test.jsx';
+import Filter from './components/filter/Filter';
+import Nav from './components/nav/Nav';
+import Products from './components/products/Products';
+import classes from './App.module.css';
 
 function App() {
-  return <Test />;
+  return (
+    <div className={classes.app}>
+      <Nav />
+      <Filter />
+      <Products />
+    </div>
+  );
 }
 
 export default App;
