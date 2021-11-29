@@ -16,9 +16,9 @@ function FilterInput(props) {
       />
       {props.listId && (
         <datalist id={props.listId}>
-          <option value="Boston" />
-          <option value="Cambridge" />
-          <option value="Something" />
+          {props.options.map(optionVal => {
+            return <option value={optionVal} />;
+          })}
         </datalist>
       )}
     </div>
