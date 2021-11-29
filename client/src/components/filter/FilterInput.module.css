@@ -3,7 +3,8 @@
   color: var(--color-text-200);
 }
 
-.input {
+.input,
+.select {
   font-size: 1.3rem;
   width: 100%;
   padding: 1rem 0.8rem;
@@ -17,4 +18,10 @@
   font-family: var(--ff-primary);
 
   outline: none;
+}
+
+.select option {
+  font-family: var(--ff-primary);
+  background-color: #272a34;
+  color: var(--color-text-100);
 }

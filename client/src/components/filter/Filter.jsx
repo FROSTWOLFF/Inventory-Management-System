@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Filter.module.css';
 import FilterInput from './FilterInput';
+import FilterButton from './FilterButton';
 
 function Filter() {
   const options1 = ['Ali', 'Dogus', 'Temizsoy'];
@@ -21,12 +22,16 @@ function Filter() {
           options={options1}
         />
         <FilterInput
-          type="text"
+          type="select"
           title="SKU"
           placeholder="All conditions"
           listId="another"
           options={options2}
         />
+        <div className="buttons">
+          <FilterButton />
+          <FilterButton />
+        </div>
       </form>
     </section>
   );
