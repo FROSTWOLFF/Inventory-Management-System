@@ -1,0 +1,13 @@
+.filter {
+  padding: 2.5rem;
+  height: 100%;
+  width: 17%;
+  background-color: var(--color-100);
+}
+
+.title {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+}

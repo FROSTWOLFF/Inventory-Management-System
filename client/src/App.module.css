@@ -1,8 +1,17 @@
 .app {
+  display: flex;
+
   height: 100%;
   width: 100%;
+
   border: 1px solid var(--color-text-100);
   font-family: var(--ff-primary);
   font-weight: var(--fw-medium);
   color: var(--color-text-300);
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }

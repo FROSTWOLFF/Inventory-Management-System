@@ -3,6 +3,7 @@
 :root {
   --color-main: #fff;
   --color-secondary: #fa2360;
+  --color-100: #272a34;
   --color-text-100: #c7c4db;
   --color-text-200: #b4b8be;
   --color-text-300: #5f6167;
@@ -21,11 +22,16 @@
   box-sizing: border-box;
 }
 
+input {
+  border: none;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  background-color: var(--color-text-200);
   height: 100vh;
 }
 
