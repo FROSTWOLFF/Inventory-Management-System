@@ -14,11 +14,13 @@ function FilterInput(props) {
         placeholder={props.placeholder}
         list={props.listId || null}
       />
-      <datalist id={props.listId}>
-        <option value="Boston" />
-        <option value="Cambridge" />
-        <option value="Something" />
-      </datalist>
+      {props.listId && (
+        <datalist id={props.listId}>
+          <option value="Boston" />
+          <option value="Cambridge" />
+          <option value="Something" />
+        </datalist>
+      )}
     </div>
   );
 }
