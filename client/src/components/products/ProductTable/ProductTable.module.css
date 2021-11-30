@@ -1,35 +1,31 @@
 .table {
+  font-size: 1.45rem;
+  border-collapse: collapse;
+  margin: 2.5rem 0;
+  /* min-width: 120rem;  */
 }
 
-.tableHead,
-.tableBody > tr {
-  display: flex;
-  justify-content: space-between;
-
-  padding: 0 0 1rem 0;
-  margin-bottom: 1rem;
-}
-
-.tableHead {
-  /* display: flex;
-  justify-content: space-between;
-
-  padding: 0 0 1rem 0;
-  margin-bottom: 1rem; */
-
-  color: var(--color-100);
-  border-bottom: 1.5px solid var(--color-text-100);
-}
-
-.tableHead > td {
+.table thead tr {
+  text-align: left;
   text-transform: uppercase;
-  color: var(--color-text-200);
+
   font-family: inherit;
   font-weight: var(--fw-regular);
+
+  color: var(--color-text-200);
+}
+
+.table tbody tr {
+  border-top: 1px solid #ddd;
+}
+
+/* .table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+} */
+
+.table td {
+  padding: 1.2rem 4rem;
 }
 
 .checkbox {
-}
-
-.tableBody {
 }
