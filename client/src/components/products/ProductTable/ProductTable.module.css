@@ -1,0 +1,9 @@
+.table {
+  color: var(--color-100);
+}
+
+th > td {
+  color: var(--color-text-200);
+  font-family: inherit;
+  font-weight: var(--fw-regular);
+}
