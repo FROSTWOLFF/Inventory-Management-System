@@ -1,0 +1,18 @@
+.button {
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: var(--fw-regular);
+
+  background-color: var(--color-200);
+  border: 2px solid var(--color-200);
+  border-radius: 0.5rem;
+  color: var(--color-text-200);
+
+  padding: 1rem 1rem;
+}
+
+.button:disabled {
+  background-color: inherit;
+  font-weight: var(--fw-medium);
+  color: var(--color-300);
+}

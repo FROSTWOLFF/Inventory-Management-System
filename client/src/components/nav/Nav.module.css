@@ -1,5 +1,28 @@
 .nav {
-  height: 11%;
+  color: var(--color-text-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 5rem;
+
+  /* height: 11%; */
   width: 100%;
+
   background-color: var(--color-main);
+}
+
+.routes {
+  display: flex;
+  gap: 2.5rem;
+  margin-right: auto;
+}
+
+.route {
+  border-bottom: 3px solid var(--color-main);
+  padding: 2.5rem 2rem;
+}
+
+.selected {
+  color: var(--color-100);
+  border-bottom: 3px solid var(--color-secondary);
 }

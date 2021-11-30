@@ -3,7 +3,10 @@
 :root {
   --color-main: #fff;
   --color-secondary: #fa2360;
+
   --color-100: #272a34;
+  --color-200: #363c47;
+
   --color-text-100: #c7c4db;
   --color-text-200: #b4b8be;
   --color-text-300: #5f6167;
