@@ -1,9 +1,35 @@
 .table {
-  color: var(--color-100);
 }
 
-th > td {
+.tableHead,
+.tableBody > tr {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 0 1rem 0;
+  margin-bottom: 1rem;
+}
+
+.tableHead {
+  /* display: flex;
+  justify-content: space-between;
+
+  padding: 0 0 1rem 0;
+  margin-bottom: 1rem; */
+
+  color: var(--color-100);
+  border-bottom: 1.5px solid var(--color-text-100);
+}
+
+.tableHead > td {
+  text-transform: uppercase;
   color: var(--color-text-200);
   font-family: inherit;
   font-weight: var(--fw-regular);
+}
+
+.checkbox {
+}
+
+.tableBody {
 }
