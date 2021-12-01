@@ -3,11 +3,23 @@
 :root {
   --color-main: #fff;
   --color-secondary: #fa2360;
+
   --color-100: #272a34;
+  --color-200: #363c47;
 
   --color-text-100: #c7c4db;
   --color-text-200: #b4b8be;
   --color-text-300: #5f6167;
+
+  --color-text-1: #bfbcd5;
+  --color-text-2: #6a707c;
+  --color-text-3: #54565f;
+  --color-text-4: #282b35;
+
+  --color-background-100: #fff;
+  --color-background-200: #f4f4f4;
+  --color-background-300: #efefef;
+  --color-background-400: #272a34;
 
   --ff-primary: 'Roboto Mono', monospace;
   --fw-light: 300;
@@ -32,7 +44,7 @@ html {
 }
 
 body {
-  background-color: var(--color-text-200);
+  background-color: var(--color-background-200);
   height: 100vh;
 }
 

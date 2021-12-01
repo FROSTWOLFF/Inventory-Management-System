@@ -4,14 +4,17 @@
   align-items: center;
   gap: 0.3rem;
 
+  font-family: inherit;
+
   border-radius: 0.5rem;
   border: none;
   padding: 0.7rem 1.8rem;
 }
 
 .primary {
+  font-weight: var(--fw-medium);
   color: var(--color-100);
-  background-color: var(--color-text-200);
+  background-color: var(--color-background-300);
 }
 
 .secondary {

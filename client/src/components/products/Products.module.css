@@ -3,9 +3,12 @@
   flex-direction: column;
 
   padding: 3rem 0;
-  margin: 3rem 3.5rem;
-  background-color: var(--color-main);
+  margin: 2.5rem 2.5rem;
   height: 100%;
+
+  background-color: var(--color-background-100);
+  border-radius: 0.3rem;
+  box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
