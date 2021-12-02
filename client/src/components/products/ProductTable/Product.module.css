@@ -1,0 +1,4 @@
+.checkbox {
+  filter: hue-rotate(120deg);
+  transform: scale(1.2);
+}

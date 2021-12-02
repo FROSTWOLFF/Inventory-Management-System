@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './Product.module.css';
 
 function Product({ data }) {
   // const test = ['Dogus', 'Ali', 'Ahmet', 'Mehmet', 'Something', 'Else', 'Another'];
@@ -6,7 +7,7 @@ function Product({ data }) {
   return (
     <tr>
       <td>
-        <input type="checkbox" />
+        <input className={classes.checkbox} type="checkbox" />
       </td>
       <td>{data.id}</td>
       <td>{data.name}</td>

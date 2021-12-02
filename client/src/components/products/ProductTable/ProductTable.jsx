@@ -11,7 +11,7 @@ const DUMMY_DATA = [
     location: 'Ankara',
     price: '52.99',
     addedIn: '19-01-2001',
-    modified: '21-01-2001',
+    modified: '01-01-2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -20,7 +20,7 @@ const DUMMY_DATA = [
     location: 'Istanbul',
     price: '32.99',
     addedIn: '14-01-2001',
-    modified: '21-01-2001',
+    modified: '01-01-2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -28,7 +28,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
   {
@@ -37,7 +37,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
   {
@@ -46,7 +46,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
   {
@@ -55,7 +55,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
   {
@@ -64,7 +64,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
   {
@@ -73,7 +73,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
   {
@@ -82,7 +82,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
   {
@@ -91,7 +91,7 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '1-01-2001',
+    addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
 ];
