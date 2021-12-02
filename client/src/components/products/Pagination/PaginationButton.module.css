@@ -16,6 +16,7 @@
 }
 
 .button:disabled {
+  border-color: #2d313a13;
   pointer-events: none;
   color: var(--color-text-1);
 }
