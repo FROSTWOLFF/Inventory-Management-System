@@ -4,6 +4,7 @@ import Button from '../helpers/Button';
 import { BsTrash } from 'react-icons/bs';
 import { MdAdd } from 'react-icons/md';
 import ProductTable from './ProductTable/ProductTable.jsx';
+import Pagination from './Pagination/Pagination.jsx';
 
 function Products() {
   return (
@@ -17,6 +18,7 @@ function Products() {
         </Button>
       </div>
       <ProductTable />
+      <Pagination />
     </section>
   );
 }
