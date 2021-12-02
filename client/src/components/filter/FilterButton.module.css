@@ -2,6 +2,7 @@
   font-family: inherit;
   font-size: 1.25rem;
   font-weight: var(--fw-regular);
+  cursor: pointer;
 
   background-color: var(--color-200);
   border: 2px solid var(--color-200);
@@ -12,6 +13,7 @@
 }
 
 .button:disabled {
+  pointer-events: none;
   background-color: inherit;
   font-weight: var(--fw-medium);
   color: var(--color-300);

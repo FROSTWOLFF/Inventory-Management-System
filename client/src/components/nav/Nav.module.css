@@ -18,11 +18,13 @@
 }
 
 .route {
+  cursor: pointer;
   border-bottom: 3px solid var(--color-main);
   padding: 2.5rem 2rem;
 }
 
 .selected {
+  cursor: default;
   color: var(--color-100);
   border-bottom: 3px solid var(--color-secondary);
 }
