@@ -5,14 +5,13 @@
 
 .input,
 .select {
+  position: relative;
   font-size: 1.3rem;
   width: 100%;
-  padding: 1rem 0.8rem;
+  padding: 1rem 1.1rem;
   margin-top: 0.7rem;
   margin-bottom: 2rem;
 
-  color: var(--color-text-1);
-  background-color: inherit;
   border: 2px solid var(--color-text-300);
   border-radius: 0.5rem;
   font-family: var(--ff-primary);
@@ -20,8 +19,36 @@
   outline: none;
 }
 
+.primary {
+  color: var(--color-text-1);
+  background-color: inherit;
+}
+
+.secondary {
+  color: var(--color-text-1);
+  background-color: var(--color-background-400);
+  border-color: var(--color-background-400);
+}
+
+.secondary::placeholder {
+  color: var(--color-text-1);
+}
+
 .select option {
   font-family: var(--ff-primary);
   background-color: #272a34;
   color: var(--color-text-100);
+}
+
+.icon {
+  position: relative;
+}
+
+.icon svg {
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 0.4rem;
+  right: 1.5rem;
+  color: var(--color-text-1);
 }
