@@ -31,6 +31,69 @@ const DUMMY_DATA = [
     addedIn: '1-01-2001',
     modified: '12-01-2001',
   },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Izmir',
+    price: '82.99',
+    addedIn: '1-01-2001',
+    modified: '12-01-2001',
+  },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Izmir',
+    price: '82.99',
+    addedIn: '1-01-2001',
+    modified: '12-01-2001',
+  },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Izmir',
+    price: '82.99',
+    addedIn: '1-01-2001',
+    modified: '12-01-2001',
+  },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Izmir',
+    price: '82.99',
+    addedIn: '1-01-2001',
+    modified: '12-01-2001',
+  },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Izmir',
+    price: '82.99',
+    addedIn: '1-01-2001',
+    modified: '12-01-2001',
+  },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Izmir',
+    price: '82.99',
+    addedIn: '1-01-2001',
+    modified: '12-01-2001',
+  },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Izmir',
+    price: '82.99',
+    addedIn: '1-01-2001',
+    modified: '12-01-2001',
+  },
 ];
 
 const HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
@@ -42,8 +105,8 @@ function ProductTable() {
         <TableHead data={HEADER_DATA} />
       </thead>
       <tbody>
-        {DUMMY_DATA.map(book => {
-          return <Product data={book} />;
+        {DUMMY_DATA.map(product => {
+          return <Product data={product} />;
         })}
       </tbody>
     </table>
