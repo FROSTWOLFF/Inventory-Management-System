@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from './Button.module.css';
 
-function Button({ type, label, icon, children, color }) {
+function Button({ type, label, onClick, children, color }) {
   const definedColor = color === 'secondary' ? classes.secondary : classes.primary;
 
   return (
-    <button className={`${classes.button} ${definedColor}`} type={type || 'button'}>
+    <button onClick={onClick} className={`${classes.button} ${definedColor}`} type={type || 'button'}>
       {children}
       {label}
     </button>
