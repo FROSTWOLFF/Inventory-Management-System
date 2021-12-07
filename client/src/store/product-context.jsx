@@ -1,6 +1,4 @@
-import React, { useState, useReducer } from 'react';
-
-const ProductContext = React.createContext([]);
+import React, { useReducer } from 'react';
 
 const DUMMY_DATA = [
   {
@@ -97,6 +95,12 @@ const DUMMY_DATA = [
 
 const DUMMY_HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
 
+const ProductContext = React.createContext({
+  products: DUMMY_DATA,
+  headers: DUMMY_HEADER_DATA,
+  productAddHandler: () => console.log('default function'),
+});
+
 const defaultReducer = {
   products: DUMMY_DATA,
   headers: DUMMY_HEADER_DATA,
@@ -105,11 +109,12 @@ const defaultReducer = {
 const productReducer = (prevState, action) => {
   if (action.type === 'ADD') {
     const addedProducts = [...prevState.products];
-    addedProducts.push(action.payload.data);
+    addedProducts.unshift(action.payload.data);
 
     return {
       products: addedProducts,
       headers: prevState.headers,
+      productAddHandler: prevState.productAddHandler,
     };
   }
 };

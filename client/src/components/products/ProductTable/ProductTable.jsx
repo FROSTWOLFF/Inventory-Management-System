@@ -6,7 +6,6 @@ import ProductContext from '../../../store/product-context';
 
 function ProductTable() {
   const productCtx = useContext(ProductContext);
-  console.log(productCtx);
 
   return (
     <table className={classes.table}>
@@ -15,7 +14,7 @@ function ProductTable() {
       </thead>
       <tbody>
         {productCtx.products.map(product => {
-          return <Product data={product} />;
+          return <Product key={product.id} data={product} />;
         })}
       </tbody>
     </table>

@@ -8,7 +8,7 @@ function TableHead({ data }) {
         <input type="checkbox" className={input} disabled />
       </td>
       {data.map(header => (
-        <td>{header}</td>
+        <td key={header}>{header}</td>
       ))}
     </tr>
   );
