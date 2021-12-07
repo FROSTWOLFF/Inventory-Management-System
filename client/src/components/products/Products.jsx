@@ -6,6 +6,7 @@ import { MdAdd } from 'react-icons/md';
 import ProductTable from './ProductTable/ProductTable.jsx';
 import Pagination from './Pagination/Pagination.jsx';
 import AddProductModal from '../Modals/functionality/AddProductModal';
+import { ProductProvider } from '../../store/product-context';
 
 function Products() {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -19,19 +20,21 @@ function Products() {
   };
 
   return (
-    <section className={classes.products}>
-      {showAddModal && <AddProductModal onClose={hideAddModalHandler} />}
-      <div className={classes.buttons}>
-        <Button label="Delete">
-          <BsTrash />
-        </Button>
-        <Button onClick={showAddModalHandler} label="Add Product" color="secondary">
-          <MdAdd size={20} />
-        </Button>
-      </div>
-      <ProductTable />
-      <Pagination />
-    </section>
+    <ProductProvider>
+      <section className={classes.products}>
+        {showAddModal && <AddProductModal onClose={hideAddModalHandler} />}
+        <div className={classes.buttons}>
+          <Button label="Delete">
+            <BsTrash />
+          </Button>
+          <Button onClick={showAddModalHandler} label="Add Product" color="secondary">
+            <MdAdd size={20} />
+          </Button>
+        </div>
+        <ProductTable />
+        <Pagination />
+      </section>
+    </ProductProvider>
   );
 }
 
