@@ -22,3 +22,9 @@
   color: var(--color-main);
   background-color: var(--color-secondary);
 }
+
+.button:disabled {
+  color: #ccc;
+  background-color: rgb(70, 68, 68);
+  cursor: not-allowed;
+}

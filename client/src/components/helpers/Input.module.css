@@ -33,12 +33,16 @@
 .secondary::placeholder {
   color: var(--color-text-1);
 }
+.invalid {
+  border-color: #b40e0e;
+  /* background-color: #fddddd; */
+}
 
-.select option {
+/* .select option {
   font-family: var(--ff-primary);
   background-color: #272a34;
   color: var(--color-text-100);
-}
+} */
 
 .icon {
   position: relative;
