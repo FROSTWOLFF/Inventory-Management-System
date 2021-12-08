@@ -12,7 +12,9 @@ function Input(props) {
         id={props.id}
         type={props.type}
         placeholder={props.placeholder}
-        list={props.listId || null}
+        onChange={props.changeHandler}
+        value={props.inputValue}
+        // list={props.listId || null}
       />
       <span className={classes.icon}>{props.children}</span>
     </div>

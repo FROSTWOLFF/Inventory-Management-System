@@ -4,23 +4,24 @@ import classes from './AddProductModal.module.css';
 import Input from '../../helpers/Input.jsx';
 import Button from '../../helpers/Button';
 import ProductContext from '../../../store/product-context.jsx';
-
-const DUMMY_PRODUCT = {
-  id: Math.random().toFixed(3),
-  name: 'New Product',
-  category: 'Action',
-  location: 'Izmir',
-  price: '82.99',
-  addedIn: '01-01-2001',
-  modified: '12-01-2001',
-};
+import useInput from '../../hooks/useInput';
 
 function AddProductModal(props) {
+  const { value: nameInput, changeHandler: nameChangeHandler } = useInput();
+  const { value: categoryInput, changeHandler: categoryChangeHandler } = useInput();
+  const { value: locationInput, changeHandler: locationChangeHandler } = useInput();
+  const { value: priceInput, changeHandler: priceChangeHandler } = useInput();
+
   const productCtx = useContext(ProductContext);
 
   const submitHandler = e => {
     e.preventDefault();
-    productCtx.productAddHandler(DUMMY_PRODUCT);
+    productCtx.productAddHandler({
+      name: nameInput,
+      category: categoryInput,
+      location: locationInput,
+      price: priceInput,
+    });
   };
 
   return (
@@ -29,10 +30,30 @@ function AddProductModal(props) {
       <div className={classes.container}>
         <form onSubmit={submitHandler}>
           <div className={classes.inputs}>
-            <Input type="text" placeholder={'Name'} />
-            <Input type="text" placeholder={'Category'} />
-            <Input type="text" placeholder={'Location'} />
-            <Input type="number" placeholder={'Price'} />
+            <Input
+              changeHandler={nameChangeHandler}
+              inputValue={nameInput}
+              type="text"
+              placeholder={'Name'}
+            />
+            <Input
+              changeHandler={categoryChangeHandler}
+              inputValue={categoryInput}
+              type="text"
+              placeholder={'Category'}
+            />
+            <Input
+              changeHandler={locationChangeHandler}
+              inputValue={locationInput}
+              type="text"
+              placeholder={'Location'}
+            />
+            <Input
+              changeHandler={priceChangeHandler}
+              inputValue={priceInput}
+              type="number"
+              placeholder={'Price'}
+            />
           </div>
           <div className={classes.buttons}>
             <Button label={'Cancel'} />

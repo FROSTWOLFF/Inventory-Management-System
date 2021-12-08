@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 
+// /////////////////DUMMY DATA
 const DUMMY_DATA = [
   {
     id: Math.random().toFixed(3),
@@ -92,8 +93,8 @@ const DUMMY_DATA = [
     modified: '12-01-2001',
   },
 ];
-
 const DUMMY_HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
+// /////////////////DUMMY DATA
 
 const ProductContext = React.createContext({
   products: DUMMY_DATA,
@@ -106,10 +107,22 @@ const defaultReducer = {
   headers: DUMMY_HEADER_DATA,
 };
 
+const formatProductData = product => {
+  const currentDate = new Date().toLocaleDateString('en');
+
+  return {
+    id: Math.random().toFixed(3),
+    ...product,
+    addedIn: currentDate,
+    modified: currentDate,
+  };
+};
+
 const productReducer = (prevState, action) => {
   if (action.type === 'ADD') {
+    const formattedData = formatProductData(action.payload.data);
     const addedProducts = [...prevState.products];
-    addedProducts.unshift(action.payload.data);
+    addedProducts.unshift(formattedData);
 
     return {
       products: addedProducts,
