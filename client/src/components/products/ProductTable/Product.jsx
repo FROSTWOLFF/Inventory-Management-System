@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Product.module.css';
+import ProductContext from '../../../store/product-context';
 
 function Product({ data }) {
-  // const test = ['Dogus', 'Ali', 'Ahmet', 'Mehmet', 'Something', 'Else', 'Another'];
+  const productCtx = useContext(ProductContext);
+
+  const changeHandler = e => {
+    productCtx.productChangeHandler(data.id);
+  };
 
   return (
     <tr>
       <td>
-        <input className={classes.checkbox} type="checkbox" />
+        <input id={data.id} className={classes.checkbox} type="checkbox" onChange={changeHandler} />
       </td>
       <td>{data.id}</td>
       <td>{data.name}</td>

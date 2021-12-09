@@ -3,6 +3,7 @@ import Filter from './components/filter/Filter.jsx';
 import Nav from './components/nav/Nav.jsx';
 import Products from './components/products/Products.jsx';
 import classes from './App.module.css';
+import { ProductProvider } from './store/product-context';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <Filter />
       <main className={classes.container}>
         <Nav />
-        <Products />
+        <ProductProvider>
+          <Products />
+        </ProductProvider>
       </main>
     </div>
   );

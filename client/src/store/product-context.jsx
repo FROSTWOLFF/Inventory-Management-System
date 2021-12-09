@@ -94,17 +94,22 @@ const DUMMY_DATA = [
   },
 ];
 const DUMMY_HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
+
 // /////////////////DUMMY DATA
 
 const ProductContext = React.createContext({
   products: DUMMY_DATA,
   headers: DUMMY_HEADER_DATA,
-  productAddHandler: () => console.log('default function'),
+  selectedRows: [],
+  productAddHandler: () => console.log('add function'),
+  productDeleteHandler: () => console.log('delete function'),
+  productChangeHandler: () => console.log('change function'),
 });
 
 const defaultReducer = {
   products: DUMMY_DATA,
   headers: DUMMY_HEADER_DATA,
+  selectedRows: [],
 };
 
 const formatProductData = product => {
@@ -125,9 +130,35 @@ const productReducer = (prevState, action) => {
     addedProducts.unshift(formattedData);
 
     return {
+      ...prevState,
       products: addedProducts,
-      headers: prevState.headers,
-      productAddHandler: prevState.productAddHandler,
+    };
+  }
+
+  if (action.type === 'DELETE') {
+    const filteredProducts = prevState.products.filter(product => {
+      return !prevState.selectedRows.includes(product.id);
+    });
+
+    return {
+      ...prevState,
+      products: filteredProducts,
+    };
+  }
+
+  if (action.type === 'CHANGE') {
+    const selectedId = action.payload.id;
+    let filteredProducts = [...prevState.selectedRows];
+
+    if (filteredProducts.includes(selectedId)) {
+      filteredProducts = filteredProducts.filter(id => id !== selectedId);
+    } else {
+      filteredProducts.push(selectedId);
+    }
+
+    return {
+      ...prevState,
+      selectedRows: filteredProducts,
     };
   }
 };
@@ -139,10 +170,21 @@ export function ProductProvider(props) {
     dispatch({ type: 'ADD', payload: { data } });
   };
 
+  const productDeleteHandler = selectedRows => {
+    dispatch({ type: 'DELETE', payload: { selectedRows } });
+  };
+
+  const productChangeHandler = id => {
+    dispatch({ type: 'CHANGE', payload: { id } });
+  };
+
   const productContextData = {
     products: state.products,
     headers: state.headers,
-    productAddHandler: productAddHandler,
+    selectedRows: state.selectedRows,
+    productAddHandler,
+    productDeleteHandler,
+    productChangeHandler,
   };
 
   return <ProductContext.Provider value={productContextData}>{props.children}</ProductContext.Provider>;
