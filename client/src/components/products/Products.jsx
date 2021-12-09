@@ -6,7 +6,6 @@ import { MdAdd } from 'react-icons/md';
 import ProductTable from './ProductTable/ProductTable.jsx';
 import Pagination from './Pagination/Pagination.jsx';
 import AddProductModal from '../Modals/functionality/AddProductModal';
-// import { ProductProvider } from '../../store/product-context';
 import ProductContext from '../../store/product-context';
 
 function Products() {
@@ -22,7 +21,6 @@ function Products() {
   };
 
   return (
-    // <ProductProvider>
     <section className={classes.products}>
       {showAddModal && <AddProductModal onClose={hideAddModalHandler} />}
       <div className={classes.buttons}>
@@ -36,7 +34,6 @@ function Products() {
       <ProductTable />
       <Pagination />
     </section>
-    // </ProductProvider>
   );
 }
 

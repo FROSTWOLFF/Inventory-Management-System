@@ -5,7 +5,7 @@ import ProductContext from '../../../store/product-context';
 function Product({ data }) {
   const productCtx = useContext(ProductContext);
 
-  const changeHandler = e => {
+  const changeHandler = () => {
     productCtx.productChangeHandler(data.id);
   };
 

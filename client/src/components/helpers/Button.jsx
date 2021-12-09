@@ -1,18 +1,19 @@
 import React from 'react';
 import classes from './Button.module.css';
 
-function Button({ type, label, onClick, children, color, disabled }) {
-  const definedColor = color === 'secondary' ? classes.secondary : classes.primary;
+function Button(props) {
+  const definedColor = props.color === 'secondary' ? classes.secondary : classes.primary;
 
   return (
     <button
-      onClick={onClick}
+      onClick={props.onClick}
       className={`${classes.button} ${definedColor}`}
-      type={type || 'button'}
-      disabled={disabled}
+      type={props.type || 'button'}
+      disabled={props.disabled}
+      {...props}
     >
-      {children}
-      {label}
+      {props.children}
+      {props.label}
     </button>
   );
 }

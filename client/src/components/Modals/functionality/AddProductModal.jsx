@@ -61,10 +61,12 @@ function AddProductModal(props) {
       location: locationInput,
       price: priceInput,
     });
+
+    props.onClose();
   };
 
   return (
-    <Modal onClose={props.onClose}>
+    <Modal>
       <h1 className={classes.title}>Add product</h1>
       <div className={classes.container}>
         <form onSubmit={submitHandler}>
@@ -100,11 +102,12 @@ function AddProductModal(props) {
               value={priceInput}
               type="number"
               placeholder={'Price'}
+              step=".01"
             />
           </div>
           <div className={classes.buttons}>
-            <Button label={'Cancel'} />
-            <Button type={'submit'} label={'Add'} color="secondary" disabled={!isFormValid} />
+            <Button label={'Cancel'} onClick={props.onClose} />
+            <Button type={'submit'} label={'Add'} color="secondary" disabled={!isFormValid} step=".01" />
           </div>
         </form>
       </div>

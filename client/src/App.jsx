@@ -7,15 +7,15 @@ import { ProductProvider } from './store/product-context';
 
 function App() {
   return (
-    <div className={classes.app}>
-      <Filter />
-      <main className={classes.container}>
-        <Nav />
-        <ProductProvider>
+    <ProductProvider>
+      <div className={classes.app}>
+        <Filter />
+        <main className={classes.container}>
+          <Nav />
           <Products />
-        </ProductProvider>
-      </main>
-    </div>
+        </main>
+      </div>
+    </ProductProvider>
   );
 }
 

@@ -17,6 +17,7 @@ function Input(props) {
         onChange={props.onChange}
         onBlur={props.onBlur}
         value={props.value}
+        {...props}
       />
       <span className={classes.icon}>{props.children}</span>
     </div>

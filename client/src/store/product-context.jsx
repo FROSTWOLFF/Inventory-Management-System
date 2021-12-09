@@ -94,7 +94,6 @@ const DUMMY_DATA = [
   },
 ];
 const DUMMY_HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
-
 // /////////////////DUMMY DATA
 
 const ProductContext = React.createContext({
@@ -127,6 +126,7 @@ const productReducer = (prevState, action) => {
   if (action.type === 'ADD') {
     const formattedData = formatProductData(action.payload.data);
     const addedProducts = [...prevState.products];
+
     addedProducts.unshift(formattedData);
 
     return {
@@ -136,29 +136,30 @@ const productReducer = (prevState, action) => {
   }
 
   if (action.type === 'DELETE') {
-    const filteredProducts = prevState.products.filter(product => {
-      return !prevState.selectedRows.includes(product.id);
-    });
+    const notDeletedProducts = prevState.products.filter(
+      product => !prevState.selectedRows.includes(product.id)
+    );
 
     return {
       ...prevState,
-      products: filteredProducts,
+      products: notDeletedProducts,
     };
   }
 
   if (action.type === 'CHANGE') {
     const selectedId = action.payload.id;
-    let filteredProducts = [...prevState.selectedRows];
+    let allSelectedRowIds = [...prevState.selectedRows];
 
-    if (filteredProducts.includes(selectedId)) {
-      filteredProducts = filteredProducts.filter(id => id !== selectedId);
+    // To add or remove specified id to selectedRows
+    if (allSelectedRowIds.includes(selectedId)) {
+      allSelectedRowIds = allSelectedRowIds.filter(id => id !== selectedId);
     } else {
-      filteredProducts.push(selectedId);
+      allSelectedRowIds.push(selectedId);
     }
 
     return {
       ...prevState,
-      selectedRows: filteredProducts,
+      selectedRows: allSelectedRowIds,
     };
   }
 };
