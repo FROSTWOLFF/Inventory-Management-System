@@ -6,6 +6,36 @@ import IconSearch from '../icons/IconSearch';
 import useInput from '../hooks/useInput';
 import ProductContext from '../../store/product-context';
 
+const DUMMY_OPTIONS_ANIMALS = [
+  {
+    value: 'dog',
+    label: 'Dog',
+  },
+  {
+    value: 'cat',
+    label: 'Cat',
+  },
+  {
+    value: 'bird',
+    label: 'Bird',
+  },
+];
+
+const DUMMY_OPTIONS_LOCATIONS = [
+  {
+    value: 'istanbul',
+    label: 'Istanbul',
+  },
+  {
+    value: 'ankara',
+    label: 'Ankara',
+  },
+  {
+    value: 'izmir',
+    label: 'Izmir',
+  },
+];
+
 function Filter() {
   const productCtx = useContext(ProductContext);
   const { value: searchValue, changeHandler: searchChangeHandler } = useInput(() => {});
@@ -29,11 +59,24 @@ function Filter() {
           >
             <IconSearch />
           </FilterInput>
-          <FilterInput title="Tags" placeholder="Filter By Tag" />
-          <FilterInput title="Location" placeholder="All locations" />
-          <FilterInput title="Category" placeholder="All categories" />
-          <FilterInput type="text" title="Condition" placeholder="All conditions" />
-          <FilterInput type="select" title="SKU" placeholder="All conditions" listId="another" />
+
+          <FilterInput title="ID" placeholder="Search By Id"></FilterInput>
+
+          <FilterInput
+            type="select"
+            options={DUMMY_OPTIONS_ANIMALS}
+            title="Category"
+            placeholder="All categories"
+          />
+
+          <FilterInput
+            type="select"
+            options={DUMMY_OPTIONS_LOCATIONS}
+            title="Location"
+            placeholder="All locations"
+          />
+
+          <FilterInput type="number" title="Price" placeholder="All prices" />
         </div>
         <div className={classes.buttons}>
           <FilterButton label="Clear filter" disabled />
