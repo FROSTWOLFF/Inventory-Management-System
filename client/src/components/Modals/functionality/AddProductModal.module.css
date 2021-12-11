@@ -9,14 +9,14 @@
 
   font-size: 2rem;
   font-family: var(--ff-primary);
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-default);
 
-  border-bottom: 2px solid var(--color-background-300);
+  border-bottom: 2px solid var(--c-bg-300);
 }
 
 .inputs input {
   font-size: 1.35rem;
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-default);
 }
 
 .buttons {
@@ -28,7 +28,7 @@
 
 .buttons button {
   font-family: var(--ff-primary);
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-default);
   text-transform: uppercase;
   font-size: 1.5rem;
 }

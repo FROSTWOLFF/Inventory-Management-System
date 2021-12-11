@@ -1,6 +1,6 @@
 .label {
   font-size: 1.4rem;
-  color: var(--color-text-200);
+  color: var(--c-txt-200);
 }
 
 .input,
@@ -12,7 +12,7 @@
   margin-top: 0.7rem;
   margin-bottom: 2rem;
 
-  border: 2px solid var(--color-text-300);
+  border: 2px solid var(--c-bg-350);
   border-radius: 0.5rem;
   font-family: var(--ff-primary);
 
@@ -20,24 +20,24 @@
 }
 
 .primary {
-  color: var(--color-text-1);
+  color: var(--c-txt-100);
   background-color: inherit;
 }
 
 .secondary {
-  color: var(--color-text-1);
-  background-color: var(--color-background-400);
-  border-color: var(--color-background-400);
+  color: var(--c-txt-100);
+  background-color: var(--c-bg-400);
+  border-color: var(--c-bg-400);
 }
 
 .secondary::placeholder {
-  color: var(--color-text-1);
+  color: var(--c-txt-200);
 }
 
 .select option {
   font-family: var(--ff-primary);
-  background-color: #272a34;
-  color: var(--color-text-100);
+  background-color: var(--c-bg-500);
+  color: var(--c-txt-100);
 }
 
 .icon {
@@ -50,5 +50,5 @@
   height: 1.6rem;
   top: 0.4rem;
   right: 1.5rem;
-  color: var(--color-text-1);
+  color: var(--c-txt-100);
 }

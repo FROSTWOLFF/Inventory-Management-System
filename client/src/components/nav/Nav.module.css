@@ -1,5 +1,5 @@
 .nav {
-  color: var(--color-text-100);
+  color: var(--c-txt-200);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,7 +8,7 @@
   /* height: 11%; */
   width: 100%;
 
-  background-color: var(--color-main);
+  background-color: var(--c-bg-100);
 }
 
 .routes {
@@ -19,12 +19,12 @@
 
 .route {
   cursor: pointer;
-  border-bottom: 3px solid var(--color-main);
+  border-bottom: 3px solid var(--c-bg-100);
   padding: 2.5rem 2rem;
 }
 
 .selected {
   cursor: default;
-  color: var(--color-100);
-  border-bottom: 3px solid var(--color-secondary);
+  color: var(--c-txt-500);
+  border-bottom: 3px solid var(--c-primary);
 }

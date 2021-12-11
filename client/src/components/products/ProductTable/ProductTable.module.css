@@ -9,9 +9,9 @@
   text-transform: uppercase;
 
   font-family: inherit;
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-default);
 
-  color: var(--color-text-200);
+  color: var(--c-txt-200);
 }
 
 .table tbody tr {
@@ -19,7 +19,7 @@
 }
 
 .table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  background-color: var(--c-bg-200);
 }
 
 .table td {

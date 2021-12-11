@@ -7,8 +7,8 @@
   box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.2);
 
   font-family: var(--ff-primary);
-  font-weight: var(--fw-medium);
-  color: var(--color-text-300);
+  font-weight: var(--fw-bold);
+  color: var(--c-txt-400);
 }
 
 .container {

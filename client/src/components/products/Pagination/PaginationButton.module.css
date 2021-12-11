@@ -4,19 +4,19 @@
 
   font-size: 1.2rem;
   padding: 0.6rem 0.8rem;
-  border: 2px solid var(--color-background-new);
-  background-color: var(--color-background-100);
+  border: 2px solid var(--c-bg-310);
+  background-color: var(--c-bg-100);
   border-radius: 0.2rem;
   cursor: pointer;
 }
 
 .selected {
   border-color: #2d313a00;
-  background-color: var(--color-background-new);
+  background-color: var(--c-bg-310);
 }
 
 .button:disabled {
-  border-color: #2d313a13;
+  border-color: var(--c-bg-300);
   pointer-events: none;
-  color: var(--color-text-1);
+  color: var(--c-txt-100);
 }

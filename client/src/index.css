@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap');
 
 :root {
-  --color-main: #fff;
+  /* --color-main: #fff;
   --color-secondary: #fa2360;
 
   --color-100: #272a34;
@@ -21,13 +21,36 @@
   --color-background-300: #efefef;
   --color-background-400: #363c47;
   --color-background-500: #272a34;
+  --color-background-new: #2d313a2a; */
 
-  --color-background-new: #2d313a2a;
+  /* --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500; */
+
+  /* Refactoring */
+  --c-primary: #fa2360;
+
+  --c-txt-50: #fff;
+  --c-txt-100: #b4b8be;
+  --c-txt-200: #bfbcd5;
+  --c-txt-300: #6a707c;
+  --c-txt-400: #54565f;
+  --c-txt-500: #282b35;
+
+  --c-bg-100: #fff;
+  --c-bg-200: #f4f4f4;
+  --c-bg-300: #efefef;
+  --c-bg-310: #2d313a2a;
+  --c-bg-350: #6a707c;
+  --c-bg-400: #363c47;
+  --c-bg-500: #272a34;
 
   --ff-primary: 'Roboto Mono', monospace;
+
   --fw-light: 300;
-  --fw-regular: 400;
-  --fw-medium: 500;
+  --fw-default: 400;
+  --fw-bold: 500;
+  /* Refactoring */
 }
 
 *,
@@ -47,7 +70,7 @@ html {
 }
 
 body {
-  background-color: var(--color-background-200);
+  background-color: var(--c-bg-200);
   height: 100vh;
 }
 

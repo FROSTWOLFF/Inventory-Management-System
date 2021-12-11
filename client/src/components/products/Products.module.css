@@ -6,7 +6,7 @@
   margin: 2.5rem 2.5rem;
   height: 100%;
 
-  background-color: var(--color-background-100);
+  background-color: var(--c-bg-100);
   border-radius: 0.3rem;
   box-shadow: 0 0 1rem 0.3rem rgba(0, 0, 0, 0.1);
 }
