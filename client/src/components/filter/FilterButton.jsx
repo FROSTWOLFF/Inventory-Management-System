@@ -3,7 +3,7 @@ import classes from './FilterButton.module.css';
 
 function FilterButton(props) {
   return (
-    <button className={classes.button} type={props.type || 'submit'} {...props}>
+    <button className={classes.button} type={props.type || 'button'} {...props}>
       {props.label}
     </button>
   );

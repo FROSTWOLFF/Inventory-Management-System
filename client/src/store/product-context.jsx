@@ -162,6 +162,21 @@ const productReducer = (prevState, action) => {
       selectedRows: allSelectedRowIds,
     };
   }
+
+  if (action.type === 'FILTER') {
+    const { filterConditions } = action.payload;
+    console.log(filterConditions);
+
+    const filteredProducts = prevState.products.filter(product => {
+      console.log(product.name);
+      return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
+    });
+
+    return {
+      ...prevState,
+      products: filteredProducts,
+    };
+  }
 };
 
 export function ProductProvider(props) {
@@ -179,6 +194,10 @@ export function ProductProvider(props) {
     dispatch({ type: 'CHANGE', payload: { id } });
   };
 
+  const productFilterHandler = filterConditions => {
+    dispatch({ type: 'FILTER', payload: { filterConditions } });
+  };
+
   const productContextData = {
     products: state.products,
     headers: state.headers,
@@ -186,6 +205,7 @@ export function ProductProvider(props) {
     productAddHandler,
     productDeleteHandler,
     productChangeHandler,
+    productFilterHandler,
   };
 
   return <ProductContext.Provider value={productContextData}>{props.children}</ProductContext.Provider>;

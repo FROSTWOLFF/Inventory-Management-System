@@ -14,28 +14,12 @@ function FilterInput(props) {
         id={props.id}
         type={props.type}
         placeholder={props.placeholder}
-        list={props.listId || null}
+        onChange={props.onChange}
+        value={props.value}
       />
       <span className={classes.icon}>{props.children}</span>
     </div>
   );
 }
-
-// {/* <select className={classes.select} name="location" id="location">
-//   <option value="Dogus">Dogus</option>
-//   <option value="Ali">Ali</option>
-//   <option value="Dogus">Dogus</option>
-//   <option value="Temizsoy">Temizsoy</option>
-// </select> */}
-
-// {
-//   props.listId && (
-//     <datalist id={props.listId}>
-//       {props.options.map(optionVal => {
-//         return <option value={optionVal} />;
-//       })}
-//     </datalist>
-//   );
-// }
 
 export default FilterInput;
