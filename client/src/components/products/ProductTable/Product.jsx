@@ -6,7 +6,7 @@ function Product({ data }) {
   const productCtx = useContext(ProductContext);
 
   const changeHandler = () => {
-    productCtx.productChangeHandler(data.id);
+    productCtx.productSelectHandler(data.id);
   };
 
   return (

@@ -8,16 +8,16 @@ import ProductContext from '../../store/product-context';
 
 const DUMMY_OPTIONS_ANIMALS = [
   {
-    value: 'dog',
-    label: 'Dog',
+    value: 'horror',
+    label: 'Horror',
   },
   {
-    value: 'cat',
-    label: 'Cat',
+    value: 'action',
+    label: 'Action',
   },
   {
-    value: 'bird',
-    label: 'Bird',
+    value: 'comedy',
+    label: 'Comedy',
   },
 ];
 

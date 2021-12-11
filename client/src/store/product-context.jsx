@@ -102,7 +102,8 @@ const ProductContext = React.createContext({
   selectedRows: [],
   productAddHandler: () => console.log('add function'),
   productDeleteHandler: () => console.log('delete function'),
-  productChangeHandler: () => console.log('change function'),
+  productSelectHandler: () => console.log('select function'),
+  productFilterHandler: () => console.log('filter function'),
 });
 
 const defaultReducer = {
@@ -146,7 +147,7 @@ const productReducer = (prevState, action) => {
     };
   }
 
-  if (action.type === 'CHANGE') {
+  if (action.type === 'SELECT') {
     const selectedId = action.payload.id;
     let allSelectedRowIds = [...prevState.selectedRows];
 
@@ -190,8 +191,8 @@ export function ProductProvider(props) {
     dispatch({ type: 'DELETE', payload: { selectedRows } });
   };
 
-  const productChangeHandler = id => {
-    dispatch({ type: 'CHANGE', payload: { id } });
+  const productSelectHandler = id => {
+    dispatch({ type: 'SELECT', payload: { id } });
   };
 
   const productFilterHandler = filterConditions => {
@@ -204,7 +205,7 @@ export function ProductProvider(props) {
     selectedRows: state.selectedRows,
     productAddHandler,
     productDeleteHandler,
-    productChangeHandler,
+    productSelectHandler,
     productFilterHandler,
   };
 
