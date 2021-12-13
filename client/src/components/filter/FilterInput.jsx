@@ -18,6 +18,7 @@ function FilterInput(props) {
           placeholder={props.placeholder}
           onChange={props.onChange}
           value={props.value}
+          step={props.step || '0'}
         />
       )}
       {isSelector && (

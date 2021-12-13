@@ -38,11 +38,23 @@ const DUMMY_OPTIONS_LOCATIONS = [
 
 function Filter() {
   const productCtx = useContext(ProductContext);
-  const { value: searchValue, changeHandler: searchChangeHandler } = useInput(() => {});
-  const { value: idValue, changeHandler: idChangeHandler } = useInput(() => {});
-  const { value: categoryValue, changeHandler: categoryChangeHandler } = useInput(() => {});
-  const { value: locationValue, changeHandler: locationChangeHandler } = useInput(() => {});
-  const { value: priceValue, changeHandler: priceChangeHandler } = useInput(() => {});
+  const {
+    value: searchValue,
+    changeHandler: searchChangeHandler,
+    reset: searchReset,
+  } = useInput(() => {});
+  const { value: idValue, changeHandler: idChangeHandler, reset: idReset } = useInput(() => {});
+  const {
+    value: categoryValue,
+    changeHandler: categoryChangeHandler,
+    reset: categoryReset,
+  } = useInput(() => {});
+  const {
+    value: locationValue,
+    changeHandler: locationChangeHandler,
+    reset: locationReset,
+  } = useInput(() => {});
+  const { value: priceValue, changeHandler: priceChangeHandler, reset: priceReset } = useInput(() => {});
 
   const submitHandler = e => {
     e.preventDefault();
@@ -56,6 +68,16 @@ function Filter() {
     };
 
     productCtx.productFilterHandler(filterConditions);
+  };
+
+  const clearHandler = () => {
+    productCtx.productClearHandler();
+
+    searchReset();
+    idReset();
+    categoryReset();
+    locationReset();
+    priceReset();
   };
 
   return (
@@ -102,11 +124,12 @@ function Filter() {
             value={priceValue}
             type="number"
             title="Price"
+            step=".01"
             placeholder="All prices"
           />
         </div>
         <div className={classes.buttons}>
-          <FilterButton label="Clear filter" disabled />
+          <FilterButton label="Clear filter" onClick={clearHandler} />
           <FilterButton type="submit" label="Apply filter" />
         </div>
       </form>

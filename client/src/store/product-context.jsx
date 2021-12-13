@@ -100,10 +100,11 @@ const ProductContext = React.createContext({
   products: DUMMY_DATA,
   headers: DUMMY_HEADER_DATA,
   selectedRows: [],
-  productAddHandler: () => console.log('add function'),
-  productDeleteHandler: () => console.log('delete function'),
-  productSelectHandler: () => console.log('select function'),
-  productFilterHandler: () => console.log('filter function'),
+  productAddHandler: () => console.log('Add function'),
+  productDeleteHandler: () => console.log('Delete function'),
+  productSelectHandler: () => console.log('Select function'),
+  productFilterHandler: () => console.log('Filter function'),
+  productClearHandler: () => console.log('Clear function'),
 });
 
 const defaultReducer = {
@@ -180,50 +181,16 @@ const productReducer = (prevState, action) => {
       console.log(filteredProducts);
     }
 
-    // // Filter by id => Returns directly if a value is found
-    // if (filterConditions.id !== '') {
-    //   filteredProducts = prevState.products.filter(product => filterConditions.id === product.id);
-
-    //   return {
-    //     ...prevState,
-    //     products: filteredProducts,
-    //   };
-    // }
-
-    // // Filter by search
-    // if (filterConditions.search !== '') {
-    //   filteredProducts = prevState.products.filter(product => {
-    //     return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
-    //   });
-    // }
-
-    // // Filter by category
-    // if (filterConditions.category !== '') {
-    //   filteredProducts = prevState.products.filter(product => {
-    //     return product.category.toLowerCase() === filterConditions.category;
-    //   });
-    // }
-
-    // // Filter by location
-    // if (filterConditions.location !== '') {
-    //   filteredProducts = prevState.products.filter(product => {
-    //     return product.location.toLowerCase() === filterConditions.location;
-    //   });
-    // }
-
-    // if (filterConditions.price !== '') {
-    //   filteredProducts = prevState.products.filter(product => {
-    //     return product.price === filterConditions.price;
-    //   });
-    // }
-
-    // const filteredProducts = prevState.products.filter(product => {
-    //   return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
-    // });
-
     return {
       ...prevState,
       products: filteredProducts,
+    };
+  }
+
+  if (action.type === 'CLEAR') {
+    return {
+      ...prevState,
+      products: DUMMY_DATA,
     };
   }
 };
@@ -247,6 +214,10 @@ export function ProductProvider(props) {
     dispatch({ type: 'FILTER', payload: { filterConditions } });
   };
 
+  const productClearHandler = () => {
+    dispatch({ type: 'CLEAR' });
+  };
+
   const productContextData = {
     products: state.products,
     headers: state.headers,
@@ -255,6 +226,7 @@ export function ProductProvider(props) {
     productDeleteHandler,
     productSelectHandler,
     productFilterHandler,
+    productClearHandler,
   };
 
   return <ProductContext.Provider value={productContextData}>{props.children}</ProductContext.Provider>;
