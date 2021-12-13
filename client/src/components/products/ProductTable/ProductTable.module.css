@@ -1,4 +1,7 @@
 .table {
+  width: 100%;
+  flex-basis: 80%;
+  table-layout: fixed;
   font-size: 1.45rem;
   border-collapse: collapse;
   margin: 2.5rem 0 auto 0;
@@ -15,6 +18,7 @@
 }
 
 .table tbody tr {
+  height: 5rem;
   border-top: 1px solid #ddd;
 }
 
@@ -22,6 +26,8 @@
   background-color: var(--c-bg-200);
 }
 
-.table td {
+.table td,
+th {
+  overflow: hidden;
   padding: 1.2rem 0 1.2rem 4rem;
 }

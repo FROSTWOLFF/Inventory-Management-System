@@ -1,4 +1,5 @@
-.tableHead td {
+.tableHead th {
+  font-weight: var(--fw-bold);
   user-select: none;
 }
 

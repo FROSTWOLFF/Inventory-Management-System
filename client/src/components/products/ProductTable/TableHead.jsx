@@ -5,11 +5,11 @@ import classes from './TableHead.module.css';
 function TableHead({ data }) {
   return (
     <tr className={classes.tableHead}>
-      <td>
-        <input type="checkbox" className={input} disabled />
-      </td>
+      <th>
+        <input type="checkbox" disabled />
+      </th>
       {data.map(header => (
-        <td key={header}>{header}</td>
+        <th key={header}>{header}</th>
       ))}
     </tr>
   );
