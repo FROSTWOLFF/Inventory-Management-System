@@ -167,9 +167,50 @@ const productReducer = (prevState, action) => {
   if (action.type === 'FILTER') {
     const { filterConditions } = action.payload;
 
-    const filteredProducts = prevState.products.filter(product => {
-      return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
-    });
+    let filteredProducts = [];
+
+    console.log(filterConditions);
+
+    // Filter by id => Returns directly if a value is found
+    if (filterConditions.id !== '') {
+      filteredProducts = prevState.products.filter(product => filterConditions.id === product.id);
+
+      return {
+        ...prevState,
+        products: filteredProducts,
+      };
+    }
+
+    // Filter by search
+    if (filterConditions.search !== '') {
+      filteredProducts = prevState.products.filter(product => {
+        return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
+      });
+    }
+
+    // Filter by category
+    if (filterConditions.category !== '') {
+      filteredProducts = prevState.products.filter(product => {
+        return product.category.toLowerCase() === filterConditions.category;
+      });
+    }
+
+    // Filter by location
+    if (filterConditions.location !== '') {
+      filteredProducts = prevState.products.filter(product => {
+        return product.location.toLowerCase() === filterConditions.location;
+      });
+    }
+
+    if (filterConditions.price !== '') {
+      filteredProducts = prevState.products.filter(product => {
+        return product.price === filterConditions.price;
+      });
+    }
+
+    // const filteredProducts = prevState.products.filter(product => {
+    //   return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
+    // });
 
     return {
       ...prevState,

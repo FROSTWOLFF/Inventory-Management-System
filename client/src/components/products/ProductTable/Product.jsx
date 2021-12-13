@@ -22,7 +22,9 @@ function Product({ data }) {
       <td>{data.price}</td>
       <td>{data.addedIn}</td>
       <td>{data.modified}</td>
-      <AiOutlineEdit size={17} className={classes.editIcon} />
+      <td className={classes.iconContainer}>
+        <AiOutlineEdit size={17} className={classes.editIcon} />
+      </td>
     </tr>
   );
 }

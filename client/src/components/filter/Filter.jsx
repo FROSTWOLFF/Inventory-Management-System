@@ -55,8 +55,6 @@ function Filter() {
       price: priceValue,
     };
 
-    console.log(filterConditions);
-
     productCtx.productFilterHandler(filterConditions);
   };
 
