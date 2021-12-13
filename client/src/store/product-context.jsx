@@ -52,6 +52,15 @@ const DUMMY_DATA = [
     name: 'something',
     category: 'Action',
     location: 'Izmir',
+    price: '83.99',
+    addedIn: '01-01-2001',
+    modified: '12-01-2001',
+  },
+  {
+    id: Math.random().toFixed(3),
+    name: 'Fight',
+    category: 'Action',
+    location: 'Ankara',
     price: '82.99',
     addedIn: '01-01-2001',
     modified: '12-01-2001',
@@ -61,16 +70,7 @@ const DUMMY_DATA = [
     name: 'Fight',
     category: 'Action',
     location: 'Izmir',
-    price: '82.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Izmir',
-    price: '82.99',
+    price: '85.00',
     addedIn: '01-01-2001',
     modified: '12-01-2001',
   },
@@ -167,46 +167,55 @@ const productReducer = (prevState, action) => {
   if (action.type === 'FILTER') {
     const { filterConditions } = action.payload;
 
-    let filteredProducts = [];
+    let filteredProducts = prevState.products;
 
-    console.log(filterConditions);
+    // All-in one version of filtering
+    for (const key in filterConditions) {
+      if (filterConditions[key] !== '') {
+        filteredProducts = filteredProducts.filter(product =>
+          product[key].toLowerCase().includes(filterConditions[key].toLowerCase())
+        );
+      }
 
-    // Filter by id => Returns directly if a value is found
-    if (filterConditions.id !== '') {
-      filteredProducts = prevState.products.filter(product => filterConditions.id === product.id);
-
-      return {
-        ...prevState,
-        products: filteredProducts,
-      };
+      console.log(filteredProducts);
     }
 
-    // Filter by search
-    if (filterConditions.search !== '') {
-      filteredProducts = prevState.products.filter(product => {
-        return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
-      });
-    }
+    // // Filter by id => Returns directly if a value is found
+    // if (filterConditions.id !== '') {
+    //   filteredProducts = prevState.products.filter(product => filterConditions.id === product.id);
 
-    // Filter by category
-    if (filterConditions.category !== '') {
-      filteredProducts = prevState.products.filter(product => {
-        return product.category.toLowerCase() === filterConditions.category;
-      });
-    }
+    //   return {
+    //     ...prevState,
+    //     products: filteredProducts,
+    //   };
+    // }
 
-    // Filter by location
-    if (filterConditions.location !== '') {
-      filteredProducts = prevState.products.filter(product => {
-        return product.location.toLowerCase() === filterConditions.location;
-      });
-    }
+    // // Filter by search
+    // if (filterConditions.search !== '') {
+    //   filteredProducts = prevState.products.filter(product => {
+    //     return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
+    //   });
+    // }
 
-    if (filterConditions.price !== '') {
-      filteredProducts = prevState.products.filter(product => {
-        return product.price === filterConditions.price;
-      });
-    }
+    // // Filter by category
+    // if (filterConditions.category !== '') {
+    //   filteredProducts = prevState.products.filter(product => {
+    //     return product.category.toLowerCase() === filterConditions.category;
+    //   });
+    // }
+
+    // // Filter by location
+    // if (filterConditions.location !== '') {
+    //   filteredProducts = prevState.products.filter(product => {
+    //     return product.location.toLowerCase() === filterConditions.location;
+    //   });
+    // }
+
+    // if (filterConditions.price !== '') {
+    //   filteredProducts = prevState.products.filter(product => {
+    //     return product.price === filterConditions.price;
+    //   });
+    // }
 
     // const filteredProducts = prevState.products.filter(product => {
     //   return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());

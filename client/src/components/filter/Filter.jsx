@@ -48,7 +48,7 @@ function Filter() {
     e.preventDefault();
 
     const filterConditions = {
-      search: searchValue,
+      name: searchValue,
       id: idValue,
       category: categoryValue,
       location: locationValue,
