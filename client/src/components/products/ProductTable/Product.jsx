@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import ProductContext from '../../../store/product-context';
+import ProductReadOnly from './ProductType/ProductReadOnly';
+import ProductEdittable from './ProductType/ProductEdittable';
 import classes from './Product.module.css';
 import { AiOutlineEdit } from 'react-icons/ai';
 
@@ -21,28 +23,10 @@ function Product({ data }) {
       <td>
         <input id={data.id} className={classes.checkbox} type="checkbox" onChange={changeHandler} />
       </td>
-      {isEditMode && (
-        <>
-          {dataKeys.map(key => (
-            <td>
-              <input
-                key={data[key]}
-                className={classes.editInput}
-                type="text"
-                defaultValue={data[key]}
-              />
-            </td>
-          ))}
-        </>
-      )}
-      {!isEditMode && (
-        <>
-          {dataKeys.map(key => (
-            <td key={data[key]}>{data[key]}</td>
-          ))}
-        </>
-      )}
+      {isEditMode &&
+        dataKeys.map(key => <ProductEdittable key={data[key]} type="text" defaultValue={data[key]} />)}
 
+      {!isEditMode && dataKeys.map(key => <ProductReadOnly key={data[key]} label={data[key]} />)}
       <td>
         <AiOutlineEdit size={17} className={classes.editIcon} onClick={iconClickHandler} />
       </td>

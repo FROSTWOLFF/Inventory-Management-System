@@ -1,6 +1,5 @@
 .table {
   width: 100%;
-  flex-basis: 80%;
   table-layout: fixed;
   font-size: 1.45rem;
   border-collapse: collapse;
