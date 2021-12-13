@@ -1,9 +1,10 @@
 import React from 'react';
 import { input } from './TableHead.module.css';
+import classes from './TableHead.module.css';
 
 function TableHead({ data }) {
   return (
-    <tr>
+    <tr className={classes.tableHead}>
       <td>
         <input type="checkbox" className={input} disabled />
       </td>

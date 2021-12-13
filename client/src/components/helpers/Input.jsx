@@ -17,7 +17,7 @@ function Input(props) {
         onChange={props.onChange}
         onBlur={props.onBlur}
         value={props.value}
-        {...props}
+        step={props.step || '0'}
       />
       <span className={classes.icon}>{props.children}</span>
     </div>

@@ -39,11 +39,25 @@ const DUMMY_OPTIONS_LOCATIONS = [
 function Filter() {
   const productCtx = useContext(ProductContext);
   const { value: searchValue, changeHandler: searchChangeHandler } = useInput(() => {});
+  const { value: idValue, changeHandler: idChangeHandler } = useInput(() => {});
+  const { value: categoryValue, changeHandler: categoryChangeHandler } = useInput(() => {});
+  const { value: locationValue, changeHandler: locationChangeHandler } = useInput(() => {});
+  const { value: priceValue, changeHandler: priceChangeHandler } = useInput(() => {});
 
   const submitHandler = e => {
     e.preventDefault();
-    console.log('form submitted ', searchValue);
-    productCtx.productFilterHandler({ search: searchValue });
+
+    const filterConditions = {
+      search: searchValue,
+      id: idValue,
+      category: categoryValue,
+      location: locationValue,
+      price: priceValue,
+    };
+
+    console.log(filterConditions);
+
+    productCtx.productFilterHandler(filterConditions);
   };
 
   return (
@@ -60,9 +74,16 @@ function Filter() {
             <IconSearch />
           </FilterInput>
 
-          <FilterInput title="ID" placeholder="Search By Id"></FilterInput>
+          <FilterInput
+            onChange={idChangeHandler}
+            value={idValue}
+            title="ID"
+            placeholder="Search By Id"
+          ></FilterInput>
 
           <FilterInput
+            onChange={categoryChangeHandler}
+            value={categoryValue}
             type="select"
             options={DUMMY_OPTIONS_ANIMALS}
             title="Category"
@@ -70,13 +91,21 @@ function Filter() {
           />
 
           <FilterInput
+            onChange={locationChangeHandler}
+            value={locationValue}
             type="select"
             options={DUMMY_OPTIONS_LOCATIONS}
             title="Location"
             placeholder="All locations"
           />
 
-          <FilterInput type="number" title="Price" placeholder="All prices" />
+          <FilterInput
+            onChange={priceChangeHandler}
+            value={priceValue}
+            type="number"
+            title="Price"
+            placeholder="All prices"
+          />
         </div>
         <div className={classes.buttons}>
           <FilterButton label="Clear filter" disabled />

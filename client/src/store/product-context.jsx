@@ -166,10 +166,8 @@ const productReducer = (prevState, action) => {
 
   if (action.type === 'FILTER') {
     const { filterConditions } = action.payload;
-    console.log(filterConditions);
 
     const filteredProducts = prevState.products.filter(product => {
-      console.log(product.name);
       return product.name.toLowerCase().includes(filterConditions.search.toLowerCase());
     });
 

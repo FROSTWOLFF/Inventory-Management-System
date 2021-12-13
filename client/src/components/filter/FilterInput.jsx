@@ -21,9 +21,21 @@ function FilterInput(props) {
         />
       )}
       {isSelector && (
-        <select className={`${classes.select} ${classes[color]}`} name={props.id} id={props.id}>
+        <select
+          onChange={props.onChange}
+          value={props.value}
+          className={`${classes.select} ${classes[color]}`}
+          name={props.id}
+          id={props.id}
+          placeholder={props.placeholder}
+        >
+          <option value="DEFAULT" hidden>
+            All {props.title}
+          </option>
           {props.options.map(option => (
-            <option value={option.value}>{option.label}</option>
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
           ))}
         </select>
       )}

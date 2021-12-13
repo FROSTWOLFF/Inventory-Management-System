@@ -2,3 +2,14 @@
   filter: hue-rotate(120deg);
   transform: scale(1.2);
 }
+
+.tableRow {
+  position: relative;
+}
+
+.editIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 3rem;
+  top: 1.1rem;
+}

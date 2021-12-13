@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import classes from './Product.module.css';
 import ProductContext from '../../../store/product-context';
+import classes from './Product.module.css';
+import { AiOutlineEdit } from 'react-icons/ai';
 
 function Product({ data }) {
   const productCtx = useContext(ProductContext);
@@ -10,7 +11,7 @@ function Product({ data }) {
   };
 
   return (
-    <tr>
+    <tr className={classes.tableRow}>
       <td>
         <input id={data.id} className={classes.checkbox} type="checkbox" onChange={changeHandler} />
       </td>
@@ -21,6 +22,7 @@ function Product({ data }) {
       <td>{data.price}</td>
       <td>{data.addedIn}</td>
       <td>{data.modified}</td>
+      <AiOutlineEdit size={17} className={classes.editIcon} />
     </tr>
   );
 }

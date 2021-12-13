@@ -1,3 +1,7 @@
-.input:disabled {
+.tableHead td {
+  user-select: none;
+}
+
+.tableHead .input:disabled {
   transform: scale(1.3);
 }
