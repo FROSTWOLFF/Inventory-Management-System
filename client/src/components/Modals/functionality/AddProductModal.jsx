@@ -54,13 +54,26 @@ function AddProductModal(props) {
 
   const submitHandler = e => {
     e.preventDefault();
-
-    productCtx.productAddHandler({
+    const product = {
       name: nameInput,
       category: categoryInput,
       location: locationInput,
       price: priceInput,
-    });
+    };
+
+    if (props.type === 'ADD') {
+      productCtx.productAddHandler(product);
+    }
+
+    if (props.type === 'EDIT') {
+      const newProduct = {
+        id: props.id,
+        ...product,
+      };
+
+      console.log(newProduct);
+      productCtx.productEditHandler(newProduct);
+    }
 
     props.onClose();
   };

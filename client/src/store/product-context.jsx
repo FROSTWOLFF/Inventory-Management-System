@@ -105,6 +105,7 @@ const ProductContext = React.createContext({
   productSelectHandler: () => console.log('Select function'),
   productFilterHandler: () => console.log('Filter function'),
   productClearHandler: () => console.log('Clear function'),
+  productEditHandler: () => console.log('Edit function'),
 });
 
 const defaultReducer = {
@@ -167,13 +168,19 @@ const productReducer = (prevState, action) => {
 
   if (action.type === 'EDIT') {
     const { data } = action.payload;
-    const beingEdittedProduct = prevState.products.find(product => product.id === data.id);
-    const updatedProduct = { ...beingEdittedProduct, ...data };
+    const productBeingEditted = prevState.products.find(product => product.id === data.id);
+    const updatedProduct = { ...productBeingEditted, ...data };
     console.log(updatedProduct);
 
-    const edittedProducts = prevState.products.map(
-      product => updatedProduct.id === product.id && updatedProduct
-    );
+    const edittedProducts = prevState.products.map(product => {
+      if (updatedProduct.id !== product.id) {
+        return product;
+      }
+
+      return updatedProduct;
+    });
+
+    console.log(edittedProducts);
 
     return {
       ...prevState,
@@ -246,6 +253,7 @@ export function ProductProvider(props) {
     productDeleteHandler,
     productSelectHandler,
     productFilterHandler,
+    productEditHandler,
     productClearHandler,
   };
 

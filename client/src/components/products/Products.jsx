@@ -22,7 +22,7 @@ function Products() {
 
   return (
     <section className={classes.products}>
-      {showAddModal && <AddProductModal onClose={hideAddModalHandler} />}
+      {showAddModal && <AddProductModal type="ADD" onClose={hideAddModalHandler} />}
       <div className={classes.buttons}>
         <Button onClick={productCtx.productDeleteHandler} label="Delete">
           <BsTrash />
