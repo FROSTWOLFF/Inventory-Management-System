@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './ProductTable.module.css';
 import Product from './Product.jsx';
 import TableHead from './TableHead.jsx';
