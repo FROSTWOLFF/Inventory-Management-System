@@ -165,6 +165,22 @@ const productReducer = (prevState, action) => {
     };
   }
 
+  if (action.type === 'EDIT') {
+    const { data } = action.payload;
+    const beingEdittedProduct = prevState.products.find(product => product.id === data.id);
+    const updatedProduct = { ...beingEdittedProduct, ...data };
+    console.log(updatedProduct);
+
+    const edittedProducts = prevState.products.map(
+      product => updatedProduct.id === product.id && updatedProduct
+    );
+
+    return {
+      ...prevState,
+      products: edittedProducts,
+    };
+  }
+
   if (action.type === 'FILTER') {
     const { filterConditions } = action.payload;
 
@@ -208,6 +224,10 @@ export function ProductProvider(props) {
 
   const productSelectHandler = id => {
     dispatch({ type: 'SELECT', payload: { id } });
+  };
+
+  const productEditHandler = data => {
+    dispatch({ type: 'EDIT', payload: { data } });
   };
 
   const productFilterHandler = filterConditions => {

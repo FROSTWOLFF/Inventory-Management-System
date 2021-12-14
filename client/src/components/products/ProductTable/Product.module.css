@@ -7,7 +7,14 @@
   position: relative;
 }
 
-.tableRow .editInput {
+.editIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 3rem;
+  top: 1.3rem;
+}
+
+/* .tableRow .editInput {
   color: var(--c-primary);
 
   width: 100%;
@@ -20,16 +27,9 @@
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
-}
+} */
 
-.editIcon {
-  cursor: pointer;
-  position: absolute;
-  right: 3rem;
-  top: 1.3rem;
-}
-
-.saveButton {
+/* .saveButton {
   position: absolute;
   right: 7.5rem;
   top: 1.2rem;
@@ -48,4 +48,4 @@
 
 .saveButton:hover {
   box-shadow: 0 0 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
-}
+} */

@@ -1,42 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import ProductContext from '../../../store/product-context';
-import ProductReadOnly from './ProductType/ProductReadOnly';
-import ProductEdittable from './ProductType/ProductEdittable';
 import classes from './Product.module.css';
 import { AiOutlineEdit } from 'react-icons/ai';
 
-function Product({ data }) {
-  const [isEditMode, setIsEditMode] = useState(false);
+function Product({ product }) {
   const productCtx = useContext(ProductContext);
-  const dataKeys = Object.keys(data);
+  const productKeys = Object.keys(product);
 
-  const changeHandler = () => {
-    productCtx.productSelectHandler(data.id);
-  };
-
-  const iconClickHandler = () => {
-    setIsEditMode(!isEditMode);
+  const selectorChangeHandler = () => {
+    productCtx.productSelectHandler(product.id);
   };
 
   return (
     <tr className={classes.tableRow}>
       <td>
-        <input id={data.id} className={classes.checkbox} type="checkbox" onChange={changeHandler} />
+        <input
+          id={product.id}
+          className={classes.checkbox}
+          type="checkbox"
+          onChange={selectorChangeHandler}
+        />
       </td>
-      {isEditMode &&
-        dataKeys.map(key => <ProductEdittable key={data[key]} type="text" defaultValue={data[key]} />)}
-
-      {!isEditMode && dataKeys.map(key => <ProductReadOnly key={data[key]} label={data[key]} />)}
+      {productKeys.map(key => (
+        <td key={product[key]}>{product[key]}</td>
+      ))}
       <td>
-        {isEditMode && (
-          <>
-            <button className={classes.saveButton}>Save</button>
-            <AiOutlineEdit size={19} className={classes.editIcon} onClick={iconClickHandler} />
-          </>
-        )}
-        {!isEditMode && (
-          <AiOutlineEdit size={19} className={classes.editIcon} onClick={iconClickHandler} />
-        )}
+        <AiOutlineEdit size={19} className={classes.editIcon} />
       </td>
     </tr>
   );
