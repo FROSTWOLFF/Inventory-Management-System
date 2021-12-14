@@ -1,0 +1,34 @@
+.container {
+  font-size: 1.7rem;
+  padding: 1.5rem 2.5rem;
+}
+
+.title {
+  margin-top: 1rem;
+  padding: 0.5rem;
+
+  font-size: 2rem;
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-default);
+
+  border-bottom: 2px solid var(--c-bg-300);
+}
+
+.inputs input {
+  font-size: 1.35rem;
+  font-weight: var(--fw-default);
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.buttons button {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-default);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}

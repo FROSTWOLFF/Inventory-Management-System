@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import ProductContext from '../../../store/product-context';
-import AddProductModal from '../../Modals/functionality/AddProductModal';
+// import AddProductModal from '../../Modals/functionality/AddProductModal';
+import EditProductModal from '../../Modals/functionality/EditProductModal';
 import classes from './Product.module.css';
 import { AiOutlineEdit } from 'react-icons/ai';
 
@@ -16,7 +17,7 @@ function Product({ product }) {
   };
 
   const productCtx = useContext(ProductContext);
-  const productKeys = Object.keys(product);
+  // const productKeys = Object.keys(product);
 
   const selectorChangeHandler = () => {
     productCtx.productSelectHandler(product.id);
@@ -24,7 +25,7 @@ function Product({ product }) {
 
   return (
     <tr className={classes.tableRow}>
-      {showAddModal && <AddProductModal id={product.id} type="EDIT" onClose={hideAddModalHandler} />}
+      {showAddModal && <EditProductModal id={product.id} data={product} onClose={hideAddModalHandler} />}
       <td>
         <input
           id={product.id}
@@ -33,7 +34,7 @@ function Product({ product }) {
           onChange={selectorChangeHandler}
         />
       </td>
-      {productKeys.map(key => (
+      {Object.keys(product).map(key => (
         <td key={product[key]}>{product[key]}</td>
       ))}
       <td>

@@ -8,8 +8,8 @@ const DUMMY_DATA = [
     category: 'Horror',
     location: 'Ankara',
     price: '52.99',
-    addedIn: '19-01-2001',
-    modified: '01-01-2001',
+    addedIn: '19/01/2001',
+    modified: '01/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -17,8 +17,8 @@ const DUMMY_DATA = [
     category: 'Comedy',
     location: 'Istanbul',
     price: '32.99',
-    addedIn: '14-01-2001',
-    modified: '01-01-2001',
+    addedIn: '14/01/2001',
+    modified: '01/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -26,8 +26,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -35,8 +35,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -44,8 +44,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -53,8 +53,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '83.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -62,8 +62,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Ankara',
     price: '82.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -71,8 +71,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '85.00',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -80,8 +80,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
   {
     id: Math.random().toFixed(3),
@@ -89,8 +89,8 @@ const DUMMY_DATA = [
     category: 'Action',
     location: 'Izmir',
     price: '82.99',
-    addedIn: '01-01-2001',
-    modified: '12-01-2001',
+    addedIn: '01/01/2001',
+    modified: '12/01/2001',
   },
 ];
 const DUMMY_HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
@@ -193,7 +193,7 @@ const productReducer = (prevState, action) => {
 
     let filteredProducts = prevState.products;
 
-    // All-in one version of filtering
+    // All/in one version of filtering
     for (const key in filterConditions) {
       if (filterConditions[key] !== '') {
         filteredProducts = filteredProducts.filter(product =>
