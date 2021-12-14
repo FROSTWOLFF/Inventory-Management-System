@@ -26,5 +26,26 @@
   cursor: pointer;
   position: absolute;
   right: 3rem;
-  top: 1.1rem;
+  top: 1.3rem;
+}
+
+.saveButton {
+  position: absolute;
+  right: 7.5rem;
+  top: 1.2rem;
+
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--c-txt-50);
+  background-color: var(--c-primary);
+
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.3rem 1.4rem;
+
+  transition: pointer-events 500ms;
+}
+
+.saveButton:hover {
+  box-shadow: 0 0 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
 }

@@ -1,14 +1,22 @@
 .editInput {
+  position: relative;
   color: var(--c-primary);
 
   width: 100%;
 
   padding: 0.2rem 1rem;
   text-align: center;
-  border: 1px solid var(--c-bg-400);
+  border: 1px solid var(--c-bg-310);
   border-radius: 0.3rem;
 
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
 }
+
+/* .approveIcon {
+  color: var(--c-primary);
+  position: absolute;
+  cursor: pointer;
+  /* top: 12px; */
+/* right: -10; */

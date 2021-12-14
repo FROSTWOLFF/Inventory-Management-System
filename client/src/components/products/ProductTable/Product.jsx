@@ -3,7 +3,9 @@ import ProductContext from '../../../store/product-context';
 import ProductReadOnly from './ProductType/ProductReadOnly';
 import ProductEdittable from './ProductType/ProductEdittable';
 import classes from './Product.module.css';
+import Button from '../../helpers/Button';
 import { AiOutlineEdit } from 'react-icons/ai';
+import { TiTickOutline } from 'react-icons/ti';
 
 function Product({ data }) {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -28,7 +30,15 @@ function Product({ data }) {
 
       {!isEditMode && dataKeys.map(key => <ProductReadOnly key={data[key]} label={data[key]} />)}
       <td>
-        <AiOutlineEdit size={17} className={classes.editIcon} onClick={iconClickHandler} />
+        {isEditMode && (
+          <>
+            <button className={classes.saveButton}>Save</button>
+            <AiOutlineEdit size={19} className={classes.editIcon} onClick={iconClickHandler} />
+          </>
+        )}
+        {!isEditMode && (
+          <AiOutlineEdit size={19} className={classes.editIcon} onClick={iconClickHandler} />
+        )}
       </td>
     </tr>
   );

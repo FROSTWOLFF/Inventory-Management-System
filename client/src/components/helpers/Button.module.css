@@ -38,7 +38,6 @@
 
 .button:disabled {
   color: #ccc;
-  /* background-color: rgb(70, 68, 68); */
   background-color: var(--c-bg-200);
   pointer-events: none;
 }
