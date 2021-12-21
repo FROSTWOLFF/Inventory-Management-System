@@ -1,103 +1,104 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
+import { MdPendingActions } from 'react-icons/md';
 
 // /////////////////DUMMY DATA
-const DUMMY_DATA = [
-  {
-    id: Math.random().toFixed(3),
-    name: 'Mac',
-    category: 'Horror',
-    location: 'Ankara',
-    price: '52.99',
-    addedIn: '19/01/2001',
-    modified: '01/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Laugh',
-    category: 'Comedy',
-    location: 'Istanbul',
-    price: '32.99',
-    addedIn: '14/01/2001',
-    modified: '01/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Izmir',
-    price: '82.99',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Izmir',
-    price: '82.99',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Izmir',
-    price: '82.99',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'something',
-    category: 'Action',
-    location: 'Izmir',
-    price: '83.99',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Ankara',
-    price: '82.99',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Izmir',
-    price: '85.00',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Izmir',
-    price: '82.99',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-  {
-    id: Math.random().toFixed(3),
-    name: 'Fight',
-    category: 'Action',
-    location: 'Izmir',
-    price: '82.99',
-    addedIn: '01/01/2001',
-    modified: '12/01/2001',
-  },
-];
+// const DUMMY_DATA = [
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Mac',
+//     category: 'Horror',
+//     location: 'Ankara',
+//     price: '52.99',
+//     addedIn: '19/01/2001',
+//     modified: '01/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Laugh',
+//     category: 'Comedy',
+//     location: 'Istanbul',
+//     price: '32.99',
+//     addedIn: '14/01/2001',
+//     modified: '01/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Fight',
+//     category: 'Action',
+//     location: 'Izmir',
+//     price: '82.99',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Fight',
+//     category: 'Action',
+//     location: 'Izmir',
+//     price: '82.99',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Fight',
+//     category: 'Action',
+//     location: 'Izmir',
+//     price: '82.99',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'something',
+//     category: 'Action',
+//     location: 'Izmir',
+//     price: '83.99',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Fight',
+//     category: 'Action',
+//     location: 'Ankara',
+//     price: '82.99',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Fight',
+//     category: 'Action',
+//     location: 'Izmir',
+//     price: '85.00',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Fight',
+//     category: 'Action',
+//     location: 'Izmir',
+//     price: '82.99',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+//   {
+//     id: Math.random().toFixed(3),
+//     name: 'Fight',
+//     category: 'Action',
+//     location: 'Izmir',
+//     price: '82.99',
+//     addedIn: '01/01/2001',
+//     modified: '12/01/2001',
+//   },
+// ];
 const DUMMY_HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
 // /////////////////DUMMY DATA
 
 const ProductContext = React.createContext({
-  products: DUMMY_DATA,
+  products: [],
   headers: DUMMY_HEADER_DATA,
   selectedRows: [],
   productAddHandler: () => console.log('Add function'),
@@ -109,7 +110,7 @@ const ProductContext = React.createContext({
 });
 
 const defaultReducer = {
-  products: DUMMY_DATA,
+  products: [],
   headers: DUMMY_HEADER_DATA,
   selectedRows: [],
 };
@@ -126,6 +127,13 @@ const formatProductData = product => {
 };
 
 const productReducer = (prevState, action) => {
+  if (action.type === 'LOAD') {
+    return {
+      ...prevState,
+      products: action.payload.products,
+    };
+  }
+
   if (action.type === 'ADD') {
     const formattedData = formatProductData(action.payload.data);
     const addedProducts = [...prevState.products];
@@ -213,13 +221,19 @@ const productReducer = (prevState, action) => {
   if (action.type === 'CLEAR') {
     return {
       ...prevState,
-      products: DUMMY_DATA,
+      products: [],
     };
   }
 };
 
 export function ProductProvider(props) {
   const [state, dispatch] = useReducer(productReducer, defaultReducer);
+
+  useEffect(() => {
+    window.db.findAll({ raw: true }).then(products => {
+      dispatch({ type: 'LOAD', payload: { products } });
+    });
+  }, []);
 
   const productAddHandler = data => {
     dispatch({ type: 'ADD', payload: { data } });

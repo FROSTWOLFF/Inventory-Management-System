@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, screen } = require('electron');
 
 const path = require('path');
 const isDev = require('electron-is-dev');
@@ -11,12 +11,16 @@ ipcMain.on('msg', (event, data) => {
 });
 
 const createWindow = () => {
+  const display = screen.getPrimaryDisplay();
+  const maxiSize = display.workAreaSize;
+
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 680,
+    width: maxiSize.width,
+    height: maxiSize.height,
     webPreferences: {
       preload: path.join(__dirname, './preload.js'),
     },
+    resizable: false,
   });
 
   mainWindow.loadURL(

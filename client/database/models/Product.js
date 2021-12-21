@@ -5,17 +5,26 @@ class Product extends Model {}
 
 Product.init(
   {
-    username: {
+    name: {
       type: DataTypes.STRING,
     },
-    password: {
+    category: {
       type: DataTypes.STRING,
     },
-    email: {
+    location: {
+      type: DataTypes.STRING,
+    },
+    price: {
+      type: DataTypes.FLOAT,
+    },
+    addedIn: {
+      type: DataTypes.STRING,
+    },
+    modified: {
       type: DataTypes.STRING,
     },
   },
-  { sequelize, modelName: 'product' }
+  { sequelize, modelName: 'product', timestamps: false }
 );
 
 module.exports = Product;
