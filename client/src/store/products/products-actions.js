@@ -4,12 +4,17 @@ const { db } = window;
 export const fetchData = () => {
   return async dispatch => {
     try {
-      const headers = Object.keys(db.getAttributes());
+      const columnData = await db.getAttributes();
       const products = await db.findAll({ raw: true, limit: 5 });
 
-      dispatch(productActions.dataLoadHandler({ headers, products: products || [] }));
+      dispatch(
+        productActions.dataLoadHandler({
+          headers: Object.keys(columnData),
+          products: products || [],
+        })
+      );
     } catch (err) {
-      console.err(err);
+      console.error(err);
     }
   };
 };

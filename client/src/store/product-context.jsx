@@ -134,19 +134,19 @@ const productReducer = (prevState, action) => {
 export function ProductProvider(props) {
   const [state, dispatch] = useReducer(productReducer, defaultReducer);
 
-  console.log(state.products);
+  // console.log(state.products);
 
-  useEffect(() => {
-    const loadingAllContent = () => {
-      const headers = Object.keys(db.getAttributes());
+  // useEffect(() => {
+  //   const loadingAllContent = () => {
+  //     const headers = Object.keys(db.getAttributes());
 
-      db.findAll({ raw: true, limit: 5 }).then(products => {
-        dispatch({ type: 'LOAD', payload: { products, headers } });
-      });
-    };
+  //     db.findAll({ raw: true, limit: 5 }).then(products => {
+  //       dispatch({ type: 'LOAD', payload: { products, headers } });
+  //     });
+  //   };
 
-    loadingAllContent();
-  }, []);
+  //   loadingAllContent();
+  // }, []);
 
   const productAddHandler = data => {
     dispatch({ type: 'ADD', payload: { data } });
