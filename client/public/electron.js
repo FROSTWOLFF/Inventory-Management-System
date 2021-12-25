@@ -3,6 +3,10 @@ const { app, BrowserWindow, ipcMain, screen } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
 
+require('electron-reload')(__dirname, {
+  electron: path.join(__dirname, '../', 'node_modules', '.bin', 'electron'),
+});
+
 let mainWindow;
 
 ipcMain.on('msg', (event, data) => {

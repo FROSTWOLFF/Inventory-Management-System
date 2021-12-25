@@ -1,12 +1,8 @@
-const { contextBridge, ipcRenderer } = require('electron');
+const { contextBridge } = require('electron');
 const sequelize = require('../database/database');
 const Product = require('../database/models/Product');
 
 sequelize.sync().then(() => console.log('Database is ready'));
-
-contextBridge.exposeInMainWorld('electron', {
-  doThing: () => ipcRenderer.send('msg', 'Hello from render process'),
-});
 
 contextBridge.exposeInMainWorld('db', {
   createProduct: productData => {
@@ -14,4 +10,5 @@ contextBridge.exposeInMainWorld('db', {
   },
 
   findAll: (options = {}) => Product.findAll(options),
+  getAttributes: () => Product.getAttributes(),
 });

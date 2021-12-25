@@ -1,105 +1,9 @@
-import React, { useReducer, useState, useEffect } from 'react';
-import { MdPendingActions } from 'react-icons/md';
-
-// /////////////////DUMMY DATA
-// const DUMMY_DATA = [
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Mac',
-//     category: 'Horror',
-//     location: 'Ankara',
-//     price: '52.99',
-//     addedIn: '19/01/2001',
-//     modified: '01/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Laugh',
-//     category: 'Comedy',
-//     location: 'Istanbul',
-//     price: '32.99',
-//     addedIn: '14/01/2001',
-//     modified: '01/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Fight',
-//     category: 'Action',
-//     location: 'Izmir',
-//     price: '82.99',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Fight',
-//     category: 'Action',
-//     location: 'Izmir',
-//     price: '82.99',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Fight',
-//     category: 'Action',
-//     location: 'Izmir',
-//     price: '82.99',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'something',
-//     category: 'Action',
-//     location: 'Izmir',
-//     price: '83.99',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Fight',
-//     category: 'Action',
-//     location: 'Ankara',
-//     price: '82.99',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Fight',
-//     category: 'Action',
-//     location: 'Izmir',
-//     price: '85.00',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Fight',
-//     category: 'Action',
-//     location: 'Izmir',
-//     price: '82.99',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-//   {
-//     id: Math.random().toFixed(3),
-//     name: 'Fight',
-//     category: 'Action',
-//     location: 'Izmir',
-//     price: '82.99',
-//     addedIn: '01/01/2001',
-//     modified: '12/01/2001',
-//   },
-// ];
-const DUMMY_HEADER_DATA = ['Id', 'Name', 'Category', 'Location', 'Price', 'Added In', 'Modified'];
-// /////////////////DUMMY DATA
+import React, { useReducer, useEffect, useState } from 'react';
+const { db } = window;
 
 const ProductContext = React.createContext({
   products: [],
-  headers: DUMMY_HEADER_DATA,
+  headers: [],
   selectedRows: [],
   productAddHandler: () => console.log('Add function'),
   productDeleteHandler: () => console.log('Delete function'),
@@ -111,7 +15,7 @@ const ProductContext = React.createContext({
 
 const defaultReducer = {
   products: [],
-  headers: DUMMY_HEADER_DATA,
+  headers: [],
   selectedRows: [],
 };
 
@@ -130,6 +34,7 @@ const productReducer = (prevState, action) => {
   if (action.type === 'LOAD') {
     return {
       ...prevState,
+      headers: action.payload.headers,
       products: action.payload.products,
     };
   }
@@ -228,11 +133,20 @@ const productReducer = (prevState, action) => {
 
 export function ProductProvider(props) {
   const [state, dispatch] = useReducer(productReducer, defaultReducer);
+  // const [isLoading, setIsLoading] = useState()
+
+  console.log(state.products);
 
   useEffect(() => {
-    window.db.findAll({ raw: true }).then(products => {
-      dispatch({ type: 'LOAD', payload: { products } });
-    });
+    const loadingAllContent = () => {
+      const headers = Object.keys(db.getAttributes());
+
+      db.findAll({ raw: true, limit: 5 }).then(products => {
+        dispatch({ type: 'LOAD', payload: { products, headers } });
+      });
+    };
+
+    loadingAllContent();
   }, []);
 
   const productAddHandler = data => {
