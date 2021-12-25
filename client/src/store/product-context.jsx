@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useReducer, useEffect } from 'react';
 const { db } = window;
 
 const ProductContext = React.createContext({
@@ -133,7 +133,6 @@ const productReducer = (prevState, action) => {
 
 export function ProductProvider(props) {
   const [state, dispatch] = useReducer(productReducer, defaultReducer);
-  // const [isLoading, setIsLoading] = useState()
 
   console.log(state.products);
 
