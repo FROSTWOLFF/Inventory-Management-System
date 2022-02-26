@@ -1,6 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
-const { db } = window;
-
+import React, { useReducer } from 'react';
 const ProductContext = React.createContext({
   products: [],
   headers: [],
